@@ -30,7 +30,6 @@ public class DogApiBreedFetcher implements BreedFetcher {
 
     @Override
     public List<String> getSubBreeds(String breed) {
-        DogApiBreedFetcher fetcher = new DogApiBreedFetcher();
         try {
             Request request = new Request.Builder()
                     .url("https://dog.ceo/api/breed/" + breed + "/list")
@@ -41,7 +40,7 @@ public class DogApiBreedFetcher implements BreedFetcher {
             String subBreedsString = subBreedsJSONArray.toString();
             String subBreedsSubString = subBreedsString.substring(1, subBreedsString.length() - 1);
             String[] subBreedsArray = subBreedsSubString.split(",");
-            List<String> subBreedsArrayList = new ArrayList<String>();
+            List<String> subBreedsArrayList = new ArrayList<>();
             for (int i = 0; i < subBreedsArray.length; i++) {
                 String subBreedsArraySubstring = subBreedsArray[i].substring(1, subBreedsArray[i].length() - 1);
                 subBreedsArrayList.add(subBreedsArraySubstring);
