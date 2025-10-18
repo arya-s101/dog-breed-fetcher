@@ -24,6 +24,11 @@ public class Main {
      * returned by the fetcher
      */
     public static int getNumberOfSubBreeds(String breed, BreedFetcher breedFetcher) throws BreedFetcher.BreedNotFoundException {
-        return breedFetcher.getSubBreeds(breed).size();
+        try {
+            return breedFetcher.getSubBreeds(breed).size();
+        }
+        catch (BreedFetcher.BreedNotFoundException e) {
+            return -1;
+        }
     }
 }
